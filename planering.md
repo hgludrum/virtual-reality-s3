@@ -46,7 +46,7 @@ Rita spelplanen, var spelaren står, vad hen ser och hur UI:t ser ut. Handritat 
 - [ ] Skiss: vad spelaren ser i headsetet (förstapersonsvy)
 - [ ] Skiss: startmeny och poängtavla
 
-*Länkar till bilder:*
+*Länkar till bilder:* ![](./Images/shared%20image%20(7).jpg) ![](./Images/shared%20image%20(8).jpg) ![](./Images/shared%20image%20(9).jpg)
 
 ---
 
