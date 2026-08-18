@@ -9,10 +9,10 @@
 
 | Namn | Klass | Huvudansvar |
 |---|---|---|
-| | | |
-| | | |
-| | | |
-| | | |
+| Villemo | 240s | |
+| Raina | 240s | |
+| Ludvig | 240s | |
+| Alan | 240s | |
 
 **Projektnamn:**
 
@@ -24,15 +24,17 @@
 
 **Vilken sport har ni valt?**
 
-*Exempel: Bowling.*
+Badminton
 
 **Beskriv spelet i 3–5 meningar. Vad gör spelaren? Vad är målet?**
 
-*Exempel: Spelaren står vid en bowlinglinje i en bowlinghall. Man plockar upp klotet med handkontrollen och kastar det mot tio käglor. Spelet räknar antal nedslagna käglor per kast och visar poängen på en tavla ovanför banan. Efter 10 rutor visas slutresultatet.*
+*Spelaren står på en badmintonplan vid ett nät. Man plockar upp racketen med handkontrollen och kastar badminton bollen upp i luften och slår till den över nätet. En AI bot spelar tillbaka och Spelet räknar antal poäng. Efter 11 rutor visas slutresultatet.*
 
 **Varför är den här sporten lämplig i VR?**
+Lätt att träna på sporten, kontrollerna påminner om ett racket.
 
 **Vad gör ert spel roligt? (Vad är "kroken"?)**
+Kontrollen vibererar när man träffar bollen, ljudeffekter, ger effekten av att man faktiskt står i en badminton hall och spelar.
 
 ---
 
@@ -52,21 +54,29 @@ Rita spelplanen, var spelaren står, vad hen ser och hur UI:t ser ut. Handritat 
 
 **Vad kan spelaren göra med händerna?**
 
-*Exempel: Greppa klotet med greppknappen, svinga armen och släppa för att kasta.*
+*Greppa racket, greppa boll, kasta boll.*
 
 **Vilka fysikobjekt finns och hur beter de sig?**
 
 | Objekt | Rigidbody? | Collider | Beteende |
 |---|---|---|---|
-| *Klot* | *Ja* | *Sphere* | *Rullar, påverkas av gravitation* |
-| *Kägla* | *Ja* | *Capsule* | *Välter vid träff* |
+| *bollen* | *Ja* | *Sphere* | *Påverkas av gravitation, flyger vid träff* |
+| *Racket* | *Ja* | *Capsule* | *gravitation, vibererar vid kontakt* |
 | | | | |
 
 **Hur räknas poäng? Skriv reglerna tydligt.**
+Mål: Slå bollen över nätet så att den landar inom motståndarens planhalva utan att de kan slå tillbaka den.
+Poäng: Du får poäng vid varje vunnen duell (oberoende av vem som servade). Upp till 11 rundor.
+Fejl/Fel: Det blir motståndarens poäng om bollen hamnar utanför planen, under nätet, i nätet, eller om du vidrör nätet med rack eller kropp.
+Serve:
+Linjer & Planen:
+Singel: Lång och smal plan gäller (de yttre sidolinjerna räknas som ut).
 
 **Hur vinner eller förlorar man?**
+Den med mest poäng vinner
 
 **Hur startas spelet om?**
+Man väljer med hjälp av restart knapp
 
 ---
 
@@ -85,16 +95,16 @@ Dela upp funktionerna. **Måste** ska vara klart för godkänt — börja alltid
 - [ ] Ljudeffekter
 - [ ] Omstart av spelet
 - [ ] Byggbar .apk
-- [ ]
+- [ ] Nåt aom slår tillbaka bollen och kan missa 
 - [ ]
 
 ### Om vi hinner (extra)
 - [ ] Haptisk feedback
 - [ ] Bakgrundsmusik / publikljud
-- [ ] Highscore som sparas
+- [ ] Mode där man kan slå hur länge som helst
+- [ ] Räkna highscore
 - [ ] Svårighetsgrader
-- [ ] Flera banor / nivåer
-- [ ]
+- [ ] 
 - [ ]
 
 ---
@@ -103,15 +113,17 @@ Dela upp funktionerna. **Måste** ska vara klart för godkänt — börja alltid
 
 | Område | Ansvarig | Beskrivning |
 |---|---|---|
-| VR-uppsättning (XR Origin, interaktion) | | |
-| Spelmekanik och fysik | | |
-| Poängsystem och regler | | |
-| 3D-modeller och miljö | | |
-| UI och menyer | | |
-| Ljud | | |
-| Testning och bygge | | |
+| VR-uppsättning (XR Origin, interaktion) | Villemo | Koppla headset, inställningar Unity|
+| Spelmekanik och fysik | Ludvig | Rörelser, fysik |
+| Poängsystem och regler | Alan | |
+| 3D-modeller och miljö | Raina | |
+| UI och menyer | Villemo  | Startmeny, game over|
+| Ljud | Alan | bakgrundsljud, ljudffekter|
+| Testning och bygge | Raina | |
+| Integrera | Ludvig | Samla ihop allt i slutet |
 
 **Hur samarbetar ni i Git?** *(branches, vem äger scenen, hur ofta ni pushar)*
+Alla jobbar på olika branches, Ludvig äger scenen, pushar när man kommit till nå som bör sparas. 
 
 ---
 
@@ -119,7 +131,7 @@ Dela upp funktionerna. **Måste** ska vara klart för godkänt — börja alltid
 
 | Vecka | Mål — vad ska vara klart? | Ansvarig |
 |---|---|---|
-| 1 | *Unity + VR installerat, tutorial genomförd, planering godkänd* | |
+| 1 | *Unity + VR installerat, tutorial genomförd, planering godkänd* | Alla |
 | 2 | | |
 | 3 | | |
 | 4 | | |
@@ -127,9 +139,10 @@ Dela upp funktionerna. **Måste** ska vara klart för godkänt — börja alltid
 | 6 | | |
 
 **Deadline för första spelbara version (prototyp):**
+8/9 morgon
 
 **Deadline för färdigt bygge:**
-
+11 september 
 ---
 
 ## 8. Assets
@@ -150,9 +163,9 @@ Vad kan gå fel och vad gör ni då?
 
 | Risk | Plan B |
 |---|---|
-| *Kastet känns fel i VR* | *Testa Throw Velocity Scale tidigt, be någon utanför gruppen testa* |
-| *Vi hinner inte med 10 rutor bowling* | *Börja med ett enda kast och bygg ut* |
-| | |
+| *Det är för svårt att träffa bollen* | Öka hitoxen |
+| *11 matcher blir för mycket* | *Säkn till lämpligt antal* |
+| Folk är sjuka och har inte pushat sin kod| Hör av oss till varandra |
 
 ---
 
