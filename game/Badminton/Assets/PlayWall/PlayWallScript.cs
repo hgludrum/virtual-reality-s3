@@ -12,6 +12,7 @@ public class PlayWallScript : MonoBehaviour
     private GameObject Shuttlecock;
 
 
+
     void Start()
     {
    
@@ -33,7 +34,13 @@ public class PlayWallScript : MonoBehaviour
     {
         if (spawnPoint != null)
         {
-            Shuttlecock = Instantiate(ShuttlecockPrefab, spawnPoint.position, spawnPoint.rotation);
+
+            Vector3 spawnPointOffsetPosition = Vector3.zero;
+            spawnPointOffsetPosition.x = spawnPoint.position.x + Random.Range(-0.5f, 0.5f);
+            spawnPointOffsetPosition.y = spawnPoint.position.y + Random.Range(-0.5f, 0.5f);
+            spawnPointOffsetPosition.z = spawnPoint.position.z;
+
+            Shuttlecock = Instantiate(ShuttlecockPrefab, spawnPointOffsetPosition, spawnPoint.rotation);
 
             // 1. Get the Rigidbody component from the newly spawned GameObject
             Rigidbody rb = Shuttlecock.GetComponent<Rigidbody>();
