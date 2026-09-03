@@ -8,8 +8,12 @@ public class PlayWallScript : MonoBehaviour
     public GameObject ShuttlecockPrefab;
     public Transform spawnPoint;
     public InputActionProperty SpawnAction;
+    public float shuttlecockInitailSpeed = 5f;
+    public float spawnOffsetRange = 0.25f;
+
 
     private GameObject Shuttlecock;
+
 
 
     void Start()
@@ -33,7 +37,13 @@ public class PlayWallScript : MonoBehaviour
     {
         if (spawnPoint != null)
         {
-            Shuttlecock = Instantiate(ShuttlecockPrefab, spawnPoint.position, spawnPoint.rotation);
+
+            Vector3 spawnPointOffsetPosition = Vector3.zero;
+            spawnPointOffsetPosition.x = spawnPoint.position.x + Random.Range(-spawnOffsetRange, spawnOffsetRange);
+            spawnPointOffsetPosition.y = spawnPoint.position.y + Random.Range(-spawnOffsetRange, spawnOffsetRange);
+            spawnPointOffsetPosition.z = spawnPoint.position.z;
+
+            Shuttlecock = Instantiate(ShuttlecockPrefab, spawnPointOffsetPosition, spawnPoint.rotation);
 
             // 1. Get the Rigidbody component from the newly spawned GameObject
             Rigidbody rb = Shuttlecock.GetComponent<Rigidbody>();
@@ -41,7 +51,7 @@ public class PlayWallScript : MonoBehaviour
             // 2. Check if the component exists to avoid NullReference exceptions
             if (rb != null)
             {
-                rb.linearVelocity = spawnPoint.forward * -10f;
+                rb.linearVelocity = spawnPoint.forward * -shuttlecockInitailSpeed;
             }
             Destroy(Shuttlecock, 10f);
         } 
