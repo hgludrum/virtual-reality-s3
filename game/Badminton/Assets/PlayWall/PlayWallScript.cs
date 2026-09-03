@@ -8,6 +8,9 @@ public class PlayWallScript : MonoBehaviour
     public GameObject ShuttlecockPrefab;
     public Transform spawnPoint;
     public InputActionProperty SpawnAction;
+    public float shuttlecockInitailSpeed = 5f;
+    public float spawnOffsetRange = 0.25f;
+
 
     private GameObject Shuttlecock;
 
@@ -36,8 +39,8 @@ public class PlayWallScript : MonoBehaviour
         {
 
             Vector3 spawnPointOffsetPosition = Vector3.zero;
-            spawnPointOffsetPosition.x = spawnPoint.position.x + Random.Range(-0.5f, 0.5f);
-            spawnPointOffsetPosition.y = spawnPoint.position.y + Random.Range(-0.5f, 0.5f);
+            spawnPointOffsetPosition.x = spawnPoint.position.x + Random.Range(-spawnOffsetRange, spawnOffsetRange);
+            spawnPointOffsetPosition.y = spawnPoint.position.y + Random.Range(-spawnOffsetRange, spawnOffsetRange);
             spawnPointOffsetPosition.z = spawnPoint.position.z;
 
             Shuttlecock = Instantiate(ShuttlecockPrefab, spawnPointOffsetPosition, spawnPoint.rotation);
@@ -48,7 +51,7 @@ public class PlayWallScript : MonoBehaviour
             // 2. Check if the component exists to avoid NullReference exceptions
             if (rb != null)
             {
-                rb.linearVelocity = spawnPoint.forward * -10f;
+                rb.linearVelocity = spawnPoint.forward * -shuttlecockInitailSpeed;
             }
             Destroy(Shuttlecock, 10f);
         } 
