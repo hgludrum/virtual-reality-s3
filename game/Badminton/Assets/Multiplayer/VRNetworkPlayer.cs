@@ -10,13 +10,14 @@ public class VRNetworkPlayer : NetworkBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void OnNetworkSpawn()
     {
-        
+        if (IsOwner)
+        {
+            HideLocalNetworkHands();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (IsOwner)
@@ -30,5 +31,24 @@ public class VRNetworkPlayer : NetworkBehaviour
             rightHand.transform.rotation = VRRigReferences.Instance.rightHand.rotation;
         }
         
+    }
+
+    private void HideLocalNetworkHands()
+    {
+        HideRenderers(leftHand);
+        HideRenderers(rightHand);
+    }
+
+    private static void HideRenderers(Transform hand)
+    {
+        if (hand == null)
+        {
+            return;
+        }
+
+        foreach (Renderer renderer in hand.GetComponentsInChildren<Renderer>(true))
+        {
+            renderer.enabled = false;
+        }
     }
 }
