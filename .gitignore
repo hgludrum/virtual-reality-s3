@@ -10,6 +10,8 @@
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 [Rr]ecordings/
+.utmp/
+TextMesh Pro
 
 # Asset Store-nedladdningar
 [Aa]ssets/AssetStoreTools*

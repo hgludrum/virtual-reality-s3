@@ -5,21 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 005e707e7de1f3e4199ceea3e134087c
-  - enabled: 1
-    path: Assets/Scenes/VR player.unity
-    guid: a842fb70af9517548bc57d66e1cec8eb
-  - enabled: 0
-    path: Assets/Scenes/Menues.unity
-    guid: 154130c1067bf774fa1964e293ba8535
-  - enabled: 0
-    path: Assets/Scenes/MainVRScene.unity
-    guid: d88d4bda5763a5f4c99e93027cc91297
+    path: Assets/Scenes/PhysicsSandbox.unity
+    guid: cd744dbd7519abd49a9b74930f1ac366
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2443f48db38aa144c8df43c1411e2717, type: 2}
