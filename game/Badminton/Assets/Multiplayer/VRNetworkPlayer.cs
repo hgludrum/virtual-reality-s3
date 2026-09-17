@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Netcode;
-
+using System.Collections.Generic;
 
 
 public class VRNetworkPlayer : NetworkBehaviour
@@ -10,11 +10,19 @@ public class VRNetworkPlayer : NetworkBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
+
+    public List<Renderer> localRendererToHide;
+
     public override void OnNetworkSpawn()
     {
+        base.OnNetworkSpawn();
+
         if (IsOwner)
         {
-            HideLocalNetworkHands();
+            foreach (var item in localRendererToHide)
+            {
+                item.enabled = false;
+            }
         }
     }
 
@@ -30,25 +38,7 @@ public class VRNetworkPlayer : NetworkBehaviour
             rightHand.transform.position = VRRigReferences.Instance.rightHand.position;
             rightHand.transform.rotation = VRRigReferences.Instance.rightHand.rotation;
         }
-        
+
     }
 
-    private void HideLocalNetworkHands()
-    {
-        HideRenderers(leftHand);
-        HideRenderers(rightHand);
-    }
-
-    private static void HideRenderers(Transform hand)
-    {
-        if (hand == null)
-        {
-            return;
-        }
-
-        foreach (Renderer renderer in hand.GetComponentsInChildren<Renderer>(true))
-        {
-            renderer.enabled = false;
-        }
-    }
 }

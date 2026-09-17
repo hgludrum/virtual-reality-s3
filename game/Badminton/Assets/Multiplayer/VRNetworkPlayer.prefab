@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3094140129
+  GlobalObjectIdHash: 747938810
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -316,6 +316,10 @@ MonoBehaviour:
   head: {fileID: 9082636176165609585}
   leftHand: {fileID: 729469817659905610}
   rightHand: {fileID: 5398157087465934440}
+  localRendererToHide:
+  - {fileID: 501701736031220189}
+  - {fileID: 2966482529009908018}
+  - {fileID: 1969261685331577201}
 --- !u!1001 &2931802038496656473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -373,6 +377,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
+--- !u!137 &2966482529009908018 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 109434732392105323, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
+  m_PrefabInstance: {fileID: 2931802038496656473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2966482529023862820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
@@ -440,6 +449,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
   m_PrefabInstance: {fileID: 6178109649187548661}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1969261685331577201 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5686134208196863108, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
+  m_PrefabInstance: {fileID: 6178109649187548661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8725256964495430836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -501,6 +515,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d81e54a094f581f42bd70f3342f3d5c8, type: 3}
+--- !u!23 &501701736031220189 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 9214419714558043497, guid: d81e54a094f581f42bd70f3342f3d5c8, type: 3}
+  m_PrefabInstance: {fileID: 8725256964495430836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1638549190576016050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8046557275475238406, guid: d81e54a094f581f42bd70f3342f3d5c8, type: 3}
