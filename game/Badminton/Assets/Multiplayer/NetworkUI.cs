@@ -1,29 +1,42 @@
 using UnityEngine;
-using Unity.Netcode;
 using UnityEngine.UI;
 
 public class NetworkUI : MonoBehaviour
 {
+    [SerializeField] private Button clientButton;
+    [SerializeField] private Button hostButton;
+    [SerializeField] private LanNetworkDiscovery networkDiscovery;
 
-    public Button clientButton;
-    public Button hostButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        clientButton.onClick.AddListener(() =>
+        if (clientButton == null || hostButton == null || networkDiscovery == null)
         {
-            NetworkManager.Singleton.StartClient();
-        });
-        hostButton.onClick.AddListener(() =>
-        {
-            NetworkManager.Singleton.StartHost();
-        });
+            Debug.LogError("NetworkUI is missing a button or LanNetworkDiscovery reference.", this);
+            enabled = false;
+            return;
+        }
 
+        clientButton.onClick.AddListener(OnClientButtonClicked);
+        hostButton.onClick.AddListener(OnHostButtonClicked);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnClientButtonClicked()
     {
-        
+        //networkDiscovery.StartClientSearch();
+        networkDiscovery.StartDirectClient();
+    }
+
+    private void OnHostButtonClicked()
+    {
+        networkDiscovery.StartHost();
+    }
+
+    private void OnDestroy()
+    {
+        if (clientButton != null)
+            clientButton.onClick.RemoveListener(OnClientButtonClicked);
+
+        if (hostButton != null)
+            hostButton.onClick.RemoveListener(OnHostButtonClicked);
     }
 }
