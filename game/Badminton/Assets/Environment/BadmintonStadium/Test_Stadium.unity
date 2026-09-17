@@ -119,6 +119,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &193453252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+  m_PrefabInstance: {fileID: 1296351990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &193453253
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193453252}
+  serializedVersion: 5
+  m_Mass: 0.005
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &456454566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,6 +195,32 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.00000011920929, z: 0.000015258789}
+--- !u!1 &935906673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7299428520003298930, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+  m_PrefabInstance: {fileID: 1296351990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &935906675
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935906673}
+  m_Material: {fileID: 13400000, guid: a765206528013d2488dd67affbe3d248, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.009999999
+  m_Center: {x: -0.000000003259629, y: 0.0000000032596283, z: 0}
 --- !u!1 &958791220
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,6 +348,71 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &1296351990
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.192
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.15505
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      propertyPath: m_Name
+      value: BadmintonShuttlecockFinal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+    - {fileID: 65702495048144492, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 193453253}
+    - targetCorrespondingSourceObject: {fileID: 7299428520003298930, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 935906675}
+  m_SourcePrefab: {fileID: 100100000, guid: 81cc367bbd4f4ed47af6ea386cbf2cac, type: 3}
 --- !u!1 &1330310843
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +424,7 @@ GameObject:
   - component: {fileID: 1330310846}
   - component: {fileID: 1330310845}
   - component: {fileID: 1330310844}
+  - component: {fileID: 1330310847}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -382,6 +506,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330310847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330310843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &1370787340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,7 +842,9 @@ PrefabInstance:
       value: BadmintonRacket
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 0915955530cd3b248a2ae817a0289d8b, type: 3}
+    - {fileID: 65702495048144492, guid: 0915955530cd3b248a2ae817a0289d8b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0915955530cd3b248a2ae817a0289d8b, type: 3}
@@ -964,3 +1134,4 @@ SceneRoots:
   - {fileID: 958791222}
   - {fileID: 1370787340}
   - {fileID: 1450242694}
+  - {fileID: 1296351990}
