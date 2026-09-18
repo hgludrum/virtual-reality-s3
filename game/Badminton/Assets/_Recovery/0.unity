@@ -417,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   clientButton: {fileID: 1444278946}
   hostButton: {fileID: 506349082}
+  networkDiscovery: {fileID: 0}
 --- !u!114 &368533675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,6 +2424,10 @@ PrefabInstance:
     - target: {fileID: 3336908605715302812, guid: 6a73b14391651e74b9c76a0b8d60083b, type: 3}
       propertyPath: m_Name
       value: Racket
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410017096537567158, guid: 6a73b14391651e74b9c76a0b8d60083b, type: 3}
+      propertyPath: shuttlecockLayer.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5520839753493568403, guid: 6a73b14391651e74b9c76a0b8d60083b, type: 3}
       propertyPath: m_LocalPosition.x
