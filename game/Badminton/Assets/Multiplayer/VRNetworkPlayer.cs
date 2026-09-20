@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Netcode;
-
+using System.Collections.Generic;
 
 
 public class VRNetworkPlayer : NetworkBehaviour
@@ -10,13 +10,22 @@ public class VRNetworkPlayer : NetworkBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public List<Renderer> localRendererToHide;
+
+    public override void OnNetworkSpawn()
     {
-        
+        base.OnNetworkSpawn();
+
+        if (IsOwner)
+        {
+            foreach (var item in localRendererToHide)
+            {
+                item.enabled = false;
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (IsOwner)
@@ -29,6 +38,7 @@ public class VRNetworkPlayer : NetworkBehaviour
             rightHand.transform.position = VRRigReferences.Instance.rightHand.position;
             rightHand.transform.rotation = VRRigReferences.Instance.rightHand.rotation;
         }
-        
+
     }
+
 }
