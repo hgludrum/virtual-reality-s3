@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoseWin : MonoBehaviour
 {
     
     public GameObject winUI;
     public GameObject gameOverUI;
-
     public Transform playerCamera;
 
 
+    public TMP_Text winPlayerScoreText;
+    public TMP_Text winOpponentScoreText;
+
+
+    public TMP_Text losePlayerScoreText;
+    public TMP_Text loseOpponentScoreText;
+
+
     public string mainMenuSceneName = "MainMenu"; 
+
 
     void Start()
     {
@@ -21,11 +30,16 @@ public class LoseWin : MonoBehaviour
         
     }
 
-
-
+   
     // Anropa den här när spelaren VINNER (t.ex. från ditt poängskript)
-    public void TriggerWin()
+    public void TriggerWin(int myScore, int opponentScore)
     {
+        if (winPlayerScoreText != null)
+            winPlayerScoreText.text = myScore.ToString();
+
+        if (winOpponentScoreText != null)
+            winOpponentScoreText.text = opponentScore.ToString();
+
         if (winUI != null)
         {
             PositionMenuInFrontOfPlayer(winUI);
@@ -35,8 +49,14 @@ public class LoseWin : MonoBehaviour
     }
 
     // Anropa den här när spelaren FÖRLORAR (t.ex. från ditt poängskript)
-    public void TriggerGameOver()
+    public void TriggerGameOver(int myScore, int opponentScore)
     {
+        if (losePlayerScoreText != null)
+            losePlayerScoreText.text = myScore.ToString();
+
+        if (loseOpponentScoreText != null)
+            loseOpponentScoreText.text = opponentScore.ToString();
+
         if (gameOverUI != null)
         {
             PositionMenuInFrontOfPlayer(gameOverUI);
