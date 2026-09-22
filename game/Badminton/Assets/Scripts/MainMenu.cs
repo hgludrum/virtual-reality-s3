@@ -6,15 +6,16 @@ public class MainMenu : MonoBehaviour
 {
     public enum Difficulty { Easy, Normal, Hard }
 
-    [Header("UI References")]
+
     public TMP_Text buttonText; 
 
-    [Header("Current State")]
+
     public static Difficulty currentDifficulty = Difficulty.Easy;
 
     void Start()
     {
         UpdateButtonUI();
+        Time.timeScale = 0;
     }
 
     public void PlayGame()
