@@ -15,6 +15,7 @@ TextMesh Pro
 
 # Asset Store-nedladdningar
 [Aa]ssets/AssetStoreTools*
+/PlayMode
 
 # Visual Studio / Rider / VS Code
 .vs/
@@ -53,3 +54,5 @@ desktop.ini
 
 # Planerings bilder
 !/images/**
+game/Badminton/Assets/Samples/XR Interaction Toolkit/3.3.2/XR Interaction Simulator/
+game/Badminton/Assets/Settings/PlayMode/

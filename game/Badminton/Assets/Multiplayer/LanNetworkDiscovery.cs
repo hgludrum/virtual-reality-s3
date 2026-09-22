@@ -18,8 +18,7 @@ public class LanNetworkDiscovery : MonoBehaviour
     [SerializeField] private int discoveryPort = 47777;
     [SerializeField] private float broadcastInterval = 2f;
 
-    [SerializeField] private string testHostAddress = "10.22.3.231";
-
+    [SerializeField] private string testHostAddress = "127.0.0.1";
     private readonly ConcurrentQueue<Action> mainThreadActions = new();
     private UdpClient listener;
     private Thread listenerThread;
