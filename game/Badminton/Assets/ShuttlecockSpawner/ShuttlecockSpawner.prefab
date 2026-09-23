@@ -44,17 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f79c238e5bf6449a57c643c8c00077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::shuttlecockspawner
-  ShuttlecockPrefab: {fileID: 919132149155446097, guid: ca0c1290ad244874dbf89e2ff3c9c46c, type: 3}
-  SpawnAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Spawn
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 2e46a2d2-b31d-4ddb-9a9e-9af402bc76e4
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-      m_Priority: 0
-    m_Reference: {fileID: 0}
+  ShuttlecockPrefab: {fileID: 2218512477869622915, guid: b1b2e43ef51e37f468c09f1cb4dd1eff, type: 3}

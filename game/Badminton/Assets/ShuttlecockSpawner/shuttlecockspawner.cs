@@ -7,8 +7,7 @@ public class shuttlecockspawner : MonoBehaviour
 {
 
     public GameObject ShuttlecockPrefab;
-    public InputActionProperty SpawnAction;
-    private bool spawnActionEnabledBySpawner;
+    private InputAction spawnAction;
 
     private void Start()
     {
@@ -17,36 +16,25 @@ public class shuttlecockspawner : MonoBehaviour
 
     private void OnEnable()
     {
-        var action = SpawnAction.action;
-        if (action == null)
-            return;
-
-        // The prefab stores a local action, so provide the Quest right-hand A button
-        // binding when no action has been configured in the Inspector.
-        if (action.bindings.Count == 0)
-        {
-            action.AddBinding("<XRController>{RightHand}/{PrimaryButton}");
-            action.AddBinding("<OculusTouchController>{RightHand}/primaryButton");
-        }
-
-        if (!action.enabled)
-        {
-            action.Enable();
-            spawnActionEnabledBySpawner = true;
-        }
+        // On Quest, A is the right Touch controller's primary button. Keep this
+        // action local so a stale Inspector InputActionReference cannot override
+        // the controller binding.
+        spawnAction = new InputAction("Spawn Shuttlecock", InputActionType.Button);
+        spawnAction.AddBinding("<XRController>{RightHand}/primaryButton");
+        spawnAction.AddBinding("<OculusTouchController>{RightHand}/primaryButton");
+        spawnAction.Enable();
     }
 
     private void OnDisable()
     {
-        if (spawnActionEnabledBySpawner && SpawnAction.action != null)
-            SpawnAction.action.Disable();
-
-        spawnActionEnabledBySpawner = false;
+        spawnAction?.Disable();
+        spawnAction?.Dispose();
+        spawnAction = null;
     }
 
     private void Update()
     {
-        if (SpawnAction.action != null && SpawnAction.action.WasPressedThisFrame())
+        if (spawnAction != null && spawnAction.WasPressedThisFrame())
             SummonShuttlecock();
     }
 
@@ -59,14 +47,9 @@ public class shuttlecockspawner : MonoBehaviour
         }
 
         var networkManager = NetworkManager.Singleton;
-        var networkObjectPrefab = ShuttlecockPrefab.GetComponent<NetworkObject>();
-
-        if (networkObjectPrefab != null && (networkManager == null || !networkManager.IsServer))
-            return;
-
         var shuttlecock = Instantiate(ShuttlecockPrefab, transform.position, transform.rotation);
         var networkObject = shuttlecock.GetComponent<NetworkObject>();
-        if (networkObject != null)
+        if (networkObject != null && networkManager != null && networkManager.IsListening)
             networkObject.Spawn();
     }
 
