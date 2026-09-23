@@ -465,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4422688695187648857, guid: b1b2e43ef51e37f468c09f1cb4dd1eff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.138
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 4422688695187648857, guid: b1b2e43ef51e37f468c09f1cb4dd1eff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -954,12 +954,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIOpponent
   shuttlecock: {fileID: 638677011}
-  moveSpeed: 4
+  opponentRacket: {fileID: 670364055}
+  moveSpeed: 7
   minZ: -2.8
   maxZ: 2.8
+  racketTilt: 15
+  racketLift: 0.5
+  racketRotationSpeed: 8
   hitX: -2.5
-  hitForce: 4
-  upwardForce: 2
+  hitForce: 5
+  upwardForce: 7
   hitCooldown: 0.8
 --- !u!1001 &1159934838
 PrefabInstance:
