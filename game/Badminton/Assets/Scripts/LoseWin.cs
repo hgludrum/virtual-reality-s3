@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class LoseWin : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class LoseWin : MonoBehaviour
     public TMP_Text loseOpponentScoreText;
 
 
-    public string mainMenuSceneName = "MainMenu"; 
+    public string mainMenuSceneName = "MainMenu";
+
+    [SerializeField] private AudioClip victoryClip;
+    [SerializeField] private AudioClip defeatClip;
+    [SerializeField] private AudioSource audioSource;
 
 
     void Start()
@@ -40,11 +45,20 @@ public class LoseWin : MonoBehaviour
         if (winOpponentScoreText != null)
             winOpponentScoreText.text = opponentScore.ToString();
 
+
+        if (victoryClip != null && audioSource != null)
+        {
+            audioSource.ignoreListenerPause = true;
+            audioSource.PlayOneShot(victoryClip, 0.9f);
+        }
+
+
         if (winUI != null)
         {
             PositionMenuInFrontOfPlayer(winUI);
             winUI.SetActive(true);
             Time.timeScale = 0;
+
         }
     }
 
@@ -57,11 +71,18 @@ public class LoseWin : MonoBehaviour
         if (loseOpponentScoreText != null)
             loseOpponentScoreText.text = opponentScore.ToString();
 
+        if (defeatClip != null && audioSource != null)
+        {
+            audioSource.ignoreListenerPause = true;
+            audioSource.PlayOneShot(defeatClip, 0.9f);
+        }
+
         if (gameOverUI != null)
         {
             PositionMenuInFrontOfPlayer(gameOverUI);
             gameOverUI.SetActive(true);
             Time.timeScale = 0;
+
         }
     }
 
