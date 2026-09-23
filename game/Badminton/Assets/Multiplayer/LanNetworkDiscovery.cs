@@ -24,22 +24,40 @@ public class LanNetworkDiscovery : MonoBehaviour
     private Thread listenerThread;
     private Coroutine broadcastCoroutine;
     private volatile bool listening;
+    private NetworkManager networkManager;
 
-    private void Awake()
+    private void Start()
     {
-        NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
-        NetworkManager.Singleton.OnTransportFailure += OnTransportFailure;
+        networkManager = NetworkManager.Singleton;
+        if (networkManager == null)
+        {
+            Debug.LogError("LanNetworkDiscovery requires an active NetworkManager in the scene.", this);
+            enabled = false;
+            return;
+        }
+
+        networkManager.OnClientDisconnectCallback += OnClientDisconnected;
+        networkManager.OnTransportFailure += OnTransportFailure;
     }
 
     public void StartDirectClient()
     {
-        if (NetworkManager.Singleton.IsListening)
+        if (!TryGetNetworkManager(out var manager))
             return;
 
-        var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        if (manager.IsListening)
+            return;
+
+        var transport = manager.GetComponent<UnityTransport>();
+        if (transport == null)
+        {
+            Debug.LogError("The NetworkManager is missing a UnityTransport component.", manager);
+            return;
+        }
+
         transport.SetConnectionData(testHostAddress, gamePort);
 
-        if (!NetworkManager.Singleton.StartClient())
+        if (!manager.StartClient())
         {
             Debug.LogError($"Could not connect directly to {testHostAddress}:{gamePort}.");
             return;
@@ -50,13 +68,22 @@ public class LanNetworkDiscovery : MonoBehaviour
 
     public void StartHost()
     {
-        if (NetworkManager.Singleton.IsListening)
+        if (!TryGetNetworkManager(out var manager))
             return;
 
-        var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        if (manager.IsListening)
+            return;
+
+        var transport = manager.GetComponent<UnityTransport>();
+        if (transport == null)
+        {
+            Debug.LogError("The NetworkManager is missing a UnityTransport component.", manager);
+            return;
+        }
+
         transport.SetConnectionData("0.0.0.0", gamePort, "0.0.0.0");
 
-        if (!NetworkManager.Singleton.StartHost())
+        if (!manager.StartHost())
         {
             Debug.LogError("Could not start host.");
             return;
@@ -68,7 +95,10 @@ public class LanNetworkDiscovery : MonoBehaviour
 
     public void StartClientSearch()
     {
-        if (NetworkManager.Singleton.IsListening || listening)
+        if (!TryGetNetworkManager(out var manager))
+            return;
+
+        if (manager.IsListening || listening)
             return;
 
         try
@@ -122,13 +152,22 @@ public class LanNetworkDiscovery : MonoBehaviour
 
     private void ConnectToHost(string hostAddress)
     {
-        if (NetworkManager.Singleton.IsListening)
+        if (!TryGetNetworkManager(out var manager))
             return;
 
-        var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        if (manager.IsListening)
+            return;
+
+        var transport = manager.GetComponent<UnityTransport>();
+        if (transport == null)
+        {
+            Debug.LogError("The NetworkManager is missing a UnityTransport component.", manager);
+            return;
+        }
+
         transport.SetConnectionData(hostAddress, gamePort);
 
-        if (!NetworkManager.Singleton.StartClient())
+        if (!manager.StartClient())
             Debug.LogError($"Could not connect to host at {hostAddress}:{gamePort}.");
         else
             Debug.Log($"Connecting to host at {hostAddress}:{gamePort}");
@@ -136,7 +175,7 @@ public class LanNetworkDiscovery : MonoBehaviour
 
     private void OnClientDisconnected(ulong clientId)
     {
-        if (NetworkManager.Singleton.IsClient)
+        if (networkManager != null && networkManager.IsClient)
             Debug.LogError($"Disconnected from host. ClientId: {clientId}");
     }
 
@@ -145,9 +184,19 @@ public class LanNetworkDiscovery : MonoBehaviour
         Debug.LogError("Unity Transport failed. Check that all devices use the same Wi-Fi and UDP port 7777 is allowed.");
     }
 
+    private bool TryGetNetworkManager(out NetworkManager manager)
+    {
+        manager = networkManager != null ? networkManager : NetworkManager.Singleton;
+        if (manager != null)
+            return true;
+
+        Debug.LogError("LanNetworkDiscovery requires an active NetworkManager in the scene.", this);
+        return false;
+    }
+
     private IEnumerator BroadcastHost()
     {
-        while (NetworkManager.Singleton.IsListening)
+        while (TryGetNetworkManager(out var manager) && manager.IsListening)
         {
             try
             {
@@ -220,10 +269,10 @@ public class LanNetworkDiscovery : MonoBehaviour
         listener = null;
         listenerThread = null;
 
-        if (NetworkManager.Singleton != null)
+        if (networkManager != null)
         {
-            NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
-            NetworkManager.Singleton.OnTransportFailure -= OnTransportFailure;
+            networkManager.OnClientDisconnectCallback -= OnClientDisconnected;
+            networkManager.OnTransportFailure -= OnTransportFailure;
         }
     }
 }
