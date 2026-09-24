@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:game/Badminton/Assets/Multiplayer/ConnectionCanvas.prefab.meta
 guid: 5f381494fe5a7964cbeab5efd221fa43
+=======
+guid: d609efd175100c744a18fd3970e4ffce
+>>>>>>> single-player:game/Badminton/Assets/Multiplayer/Connection Manager.prefab.meta
+=======
+guid: 5f381494fe5a7964cbeab5efd221fa43
+>>>>>>> single-player
 PrefabImporter:
   externalObjects: {}
   userData: 
