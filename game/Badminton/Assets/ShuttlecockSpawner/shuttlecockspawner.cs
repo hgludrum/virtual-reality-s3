@@ -20,8 +20,8 @@ public class shuttlecockspawner : MonoBehaviour
         // action local so a stale Inspector InputActionReference cannot override
         // the controller binding.
         spawnAction = new InputAction("Spawn Shuttlecock", InputActionType.Button);
-        spawnAction.AddBinding("<XRController>{RightHand}/primaryButton");
-        spawnAction.AddBinding("<OculusTouchController>{RightHand}/primaryButton");
+        spawnAction.AddBinding("<XRController>{LeftHand}/primaryButton");
+        spawnAction.AddBinding("<OculusTouchController>{LeftHand}/primaryButton");
         spawnAction.Enable();
     }
 
