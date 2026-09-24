@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: b2702043eacab614890a2e6d84dca8a1
+=======
+guid: 1c8fee01b32c7104b8d7202dd95a1868
+>>>>>>> single-player
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
